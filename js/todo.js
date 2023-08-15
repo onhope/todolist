@@ -59,6 +59,10 @@ const generateManage = () => {
     const li = e.target.parentNode.parentNode;
     li.classList.add("done");
   })
+  icon2.addEventListener("click", (e) => {
+    const li = e.target.parentNode.parentNode;
+    todoList.removeChild(li);
+  })
   
   span.appendChild(icon1);
   span.appendChild(icon2);

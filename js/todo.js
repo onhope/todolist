@@ -29,6 +29,10 @@ const generateLike = () => {
   icon.classList.add("like")
   icon.innerText = "favorite_border";
   span.appendChild(icon);
+  icon.addEventListener("click", () => {
+    icon.innerText === "favorite_border" ? 
+      icon.innerText = "favorite" : icon.innerText = "favorite_border";
+  })
   return span;
 }
 

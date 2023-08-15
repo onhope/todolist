@@ -34,7 +34,13 @@
   display: flex;
   align-items: center;
 }
-
+.done .todo-item  {
+  text-decoration: line-through;
+  color: #eee;
+}
+.done .check {
+  visibility: hidden;
+}
 .todo-like {
   flex: 1;
 }

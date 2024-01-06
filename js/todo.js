@@ -2,6 +2,8 @@ const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector(".todo-list");
 
 todoInput.addEventListener("keypress", (e)=> {
+  // console.log(e);
+  // 엔터를 누를 경우 keycode는 13
   if (e.keyCode === 13) {
     generateTodo(todoInput.value);
     todoInput.value = "";
@@ -9,6 +11,7 @@ todoInput.addEventListener("keypress", (e)=> {
 })
 
 const generateTodo = (todo) => {
+  // css 작업 li태그
   const li = document.createElement("li");
   const likeSpan = generateLike();
   const ItemSpan= generateItem(todo);
@@ -21,6 +24,7 @@ const generateTodo = (todo) => {
   todoList.appendChild(li);
 }
 
+// 좋아요 표시 함수
 const generateLike = () => {
   const span = document.createElement("span");
   span.classList.add("todo-like");
@@ -36,6 +40,7 @@ const generateLike = () => {
   return span;
 }
 
+// 입력한 todo 생성 함수 
 const generateItem = (todo) => {
   const span = document.createElement("span");
   span.classList.add("todo-item");
@@ -43,6 +48,7 @@ const generateItem = (todo) => {
   return span;
 }
 
+// todo 체크, 삭제 함수
 const generateManage = () => {
   const span = document.createElement("span");
   span.classList.add("todo-manage");
@@ -55,10 +61,14 @@ const generateManage = () => {
   icon2.classList.add("clear")
   icon2.innerText = "clear";
 
+  // 체크 클릭 이벤트
   icon1.addEventListener("click", (e) => {
     const li = e.target.parentNode.parentNode;
+    console.log(e);
     li.classList.add("done");
   })
+
+  // 삭제 클릭 이벤트 
   icon2.addEventListener("click", (e) => {
     const li = e.target.parentNode.parentNode;
     todoList.removeChild(li);
